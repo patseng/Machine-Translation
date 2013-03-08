@@ -19,28 +19,47 @@ class Translator:
         dict[row[0].lower()] = row[1].lower()
     return dict
   
+  def printSentenceWithTags(self, pos_context):
+    to_print = []
+    for x,y in pos_context:
+      to_print.append(x)
+      to_print.append("(%s)" % y)
+    print " ".join(to_print)
+  
+  
   def pos_translate(self):
     english = self.dick_translate()
+    j = 0
     for sentence in english:
       pos_context = nltk.pos_tag(sentence)
       
       edited_pos_context = []
       for i in xrange(len(pos_context) - 1):
         
-        to_append = (None, None)
+        to_append = None
         # rule 1 of 10 - remove multiple adverbs in a row
         if pos_context[i][1] != "RB" or pos_context[i+1][1] != "RB":
-          edited_pos_context.append(pos_context[i])
+          to_append = pos_context[i]
         # rule 2
-        if pos_context[i][1] == "VB" and re.match("to .*", pos_context[i][0])
-          
-          edited_pos_context.append()
+        # if pos_context[i][1] == "VB" and re.match("to .{1,}", pos_context[i][0]):
+          # to_append = (pos_context[i][0][3:], pos_context[i][1])
+        if to_append:
+          edited_pos_context.append(to_append)
 
       edited_pos_context.append(pos_context[-1])
-
+    
+      # print " ".join([y for x,y in edited_pos_context])
       
       print
-      print " ".join(sentence)
+      print "SPANISH"
+      print 
+      print self.text[j]
+      j += 1
+      print
+      
+      self.printSentenceWithTags(edited_pos_context)
+      print
+      print " ".join([x for x,y in edited_pos_context])
       print "pos:"
       print "\t%s" % edited_pos_context 
       print
@@ -61,7 +80,9 @@ class Translator:
           appendPeriod = True
         
         if word.lower() in self.dictionary:
-          sentence.append(self.dictionary[word.lower()])
+          translated_words = self.dictionary[word.lower()]
+          for word in translated_words.split():
+            sentence.append(word)
         else:
           sentence.append(word)
           

@@ -1,0 +1,50 @@
+
+the Mochis , Sinaloa.- the day of tomorrow , the flight of the company volaris that salts of the airport international of the valley of the strong with give up in the Mochis and whose destination is the city of tijuana , baja california , went canceled without previous notice .
+pos:
+	[('the', 'DT'), ('Mochis', 'NNP'), (',', ','), ('Sinaloa.-', 'NNP'), ('the', 'DT'), ('day', 'NN'), ('of', 'IN'), ('tomorrow', 'NN'), (',', ','), ('the', 'DT'), ('flight', 'NN'), ('of', 'IN'), ('the', 'DT'), ('company', 'NN'), ('volaris', 'VBZ'), ('that', 'IN'), ('salts', 'NNS'), ('of the', 'DT'), ('airport', 'NN'), ('international', 'JJ'), ('of the', 'NN'), ('valley', 'NN'), ('of the', 'NN'), ('strong', 'JJ'), ('with', 'IN'), ('give up', 'JJ'), ('in', 'IN'), ('the', 'DT'), ('Mochis', 'NNP'), ('and', 'CC'), ('whose', 'WP$'), ('destination', 'NN'), ('is', 'VBZ'), ('the', 'DT'), ('city', 'NN'), ('of', 'IN'), ('tijuana', 'NNS'), (',', ','), ('baja', 'NN'), ('california', 'NN'), (',', ','), ('went', 'VBD'), ('canceled', 'VBN'), ('without', 'IN'), ('previous', 'JJ'), ('notice', 'NN'), ('.', '.')]
+
+
+personal of the port air confirmed that not his own be about of the cancellation of the route in general , but of that one flight specific and only for this occassion .
+pos:
+	[('personal', 'JJ'), ('of the', 'NN'), ('port', 'NN'), ('air', 'NN'), ('confirmed', 'VBD'), ('that', 'IN'), ('not', 'RB'), ('his own', 'JJ'), ('be about', 'NN'), ('of', 'IN'), ('the', 'DT'), ('cancellation', 'NN'), ('of', 'IN'), ('the', 'DT'), ('route', 'NN'), ('in', 'IN'), ('general', 'JJ'), (',', ','), ('but', 'CC'), ('of', 'IN'), ('that one', 'JJ'), ('flight', 'NN'), ('specific', 'JJ'), ('and', 'CC'), ('only', 'RB'), ('for', 'IN'), ('this', 'DT'), ('occassion', 'NN'), ('.', '.')]
+
+
+the director of economy of the local government of ahome , Mauricio Duarte Martínez , confirmed the information at través of the gerencia of the company .
+pos:
+	[('the', 'DT'), ('director', 'NN'), ('of', 'IN'), ('economy', 'NN'), ('of the', 'DT'), ('local government', 'JJ'), ('of', 'IN'), ('ahome', 'NN'), (',', ','), ('Mauricio', 'NNP'), ('Duarte', 'NNP'), ('Mart\xc3\xadnez', 'NNP'), (',', ','), ('confirmed', 'VBD'), ('the', 'DT'), ('information', 'NN'), ('at', 'IN'), ('trav\xc3\xa9s', 'JJ'), ('of', 'IN'), ('the', 'DT'), ('gerencia', 'NN'), ('of', 'IN'), ('the', 'DT'), ('company', 'NN'), ('.', '.')]
+
+
+of done , the civil servant municipal told that his own him/her informed that his own be about of one operation that make the airline in their units air and that is related with the enrollments that carry the aircraft .
+pos:
+	[('of', 'IN'), ('done', 'VBN'), (',', ','), ('the', 'DT'), ('civil servant', 'JJ'), ('municipal', 'JJ'), ('told', 'NN'), ('that', 'WDT'), ('his own', '-NONE-'), ('him/her', '-NONE-'), ('informed', 'VBN'), ('that', 'IN'), ('his own', 'JJ'), ('be about', 'NN'), ('of', 'IN'), ('one', 'CD'), ('operation', 'NN'), ('that', 'WDT'), ('make', 'VBP'), ('the', 'DT'), ('airline', 'NN'), ('in', 'IN'), ('their', 'PRP$'), ('units', 'NNS'), ('air', 'VBP'), ('and', 'CC'), ('that', 'IN'), ('is', 'VBZ'), ('related', 'VBN'), ('with', 'IN'), ('the', 'DT'), ('enrollments', 'NNS'), ('that', 'WDT'), ('carry', 'VBP'), ('the', 'DT'), ('aircraft', 'NN'), ('.', '.')]
+
+
+" not his own canceled the route , is single the flight of tomorrow , the that salts at tijuana " , said .
+pos:
+	[('"', 'NN'), ('not', 'RB'), ('his own', 'JJ'), ('canceled', 'VBN'), ('the', 'DT'), ('route', 'NN'), (',', ','), ('is', 'VBZ'), ('single', 'JJ'), ('the', 'DT'), ('flight', 'NN'), ('of', 'IN'), ('tomorrow', 'NN'), (',', ','), ('the', 'DT'), ('that', 'WDT'), ('salts', 'VBZ'), ('at', 'IN'), ('tijuana', 'NN'), ('"', ':'), (',', ','), ('said', 'VBD'), ('.', '.')]
+
+
+of done , Duarte Martínez indicated that would very difficult that the route out cancelled , position that recently had some approach with various business owners of the bunch and had information of that there is demand of more vuelos and not of less .
+pos:
+	[('of', 'IN'), ('done', 'VBN'), (',', ','), ('Duarte', 'NNP'), ('Mart\xc3\xadnez', 'NNP'), ('indicated', 'VBD'), ('that', 'IN'), ('would', 'MD'), ('very', 'RB'), ('difficult', 'VB'), ('that', 'IN'), ('the', 'DT'), ('route', 'NN'), ('out', 'IN'), ('cancelled', 'VBN'), (',', ','), ('position', 'NN'), ('that', 'IN'), ('recently', 'RB'), ('had', 'VBD'), ('some', 'DT'), ('approach', 'NN'), ('with', 'IN'), ('various', 'JJ'), ('business owners', 'NNS'), ('of the', 'JJ'), ('bunch', 'NN'), ('and', 'CC'), ('had', 'VBD'), ('information', 'NN'), ('of', 'IN'), ('that', 'DT'), ('there is', 'JJ'), ('demand', 'NN'), ('of', 'IN'), ('more', 'JJR'), ('vuelos', 'NNS'), ('and', 'CC'), ('not', 'RB'), ('of', 'IN'), ('less', 'JJR'), ('.', '.')]
+
+
+reporters of this house editorial his own communicated at the telephones of the airline for to solicit more details respect at this event .
+pos:
+	[('reporters', 'NNS'), ('of', 'IN'), ('this', 'DT'), ('house', 'NN'), ('editorial', 'NN'), ('his own', 'NN'), ('communicated', 'VBD'), ('at', 'IN'), ('the', 'DT'), ('telephones', 'NNS'), ('of', 'IN'), ('the', 'DT'), ('airline', 'NN'), ('for', 'IN'), ('to solicit', 'JJ'), ('more', 'JJR'), ('details', 'NNS'), ('respect', 'VBP'), ('at', 'IN'), ('this', 'DT'), ('event', 'NN'), ('.', '.')]
+
+
+without confiscate , the personal at position of indicated that not told with the departments for to facilitate information because at some regulations internal of the company .
+pos:
+	[('without', 'IN'), ('confiscate', 'JJ'), (',', ','), ('the', 'DT'), ('personal', 'JJ'), ('at', 'IN'), ('position', 'NN'), ('of', 'IN'), ('indicated', 'VBN'), ('that', 'IN'), ('not', 'RB'), ('told', 'VBD'), ('with', 'IN'), ('the', 'DT'), ('departments', 'NNS'), ('for', 'IN'), ('to facilitate', 'JJ'), ('information', 'NN'), ('because', 'IN'), ('at', 'IN'), ('some', 'DT'), ('regulations', 'NNS'), ('internal', 'JJ'), ('of', 'IN'), ('the', 'DT'), ('company', 'NN'), ('.', '.')]
+
+
+his own provided one direction of mail electronic for to solicit the information , but not his own managed obtain no answer in time , for that which is that probably this went also the same situation that lived some travellers that stayed broke without his/her flight .
+pos:
+	[('his own', 'JJ'), ('provided', 'VBN'), ('one', 'CD'), ('direction', 'NN'), ('of', 'IN'), ('mail', 'NN'), ('electronic', 'JJ'), ('for', 'IN'), ('to solicit', 'JJ'), ('the', 'DT'), ('information', 'NN'), (',', ','), ('but', 'CC'), ('not', 'RB'), ('his own', 'JJ'), ('managed', 'VBN'), ('obtain', 'NN'), ('no', 'DT'), ('answer', 'NN'), ('in', 'IN'), ('time', 'NN'), (',', ','), ('for', 'IN'), ('that which is', 'NNP'), ('that', 'WDT'), ('probably', 'RB'), ('this', 'DT'), ('went', 'NN'), ('also', 'RB'), ('the', 'DT'), ('same', 'JJ'), ('situation', 'NN'), ('that', 'IN'), ('lived', 'VBN'), ('some', 'DT'), ('travellers', 'NNS'), ('that', 'WDT'), ('stayed', 'VBN'), ('broke', 'NN'), ('without', 'IN'), ('his/her', 'JJ'), ('flight', 'NN'), ('.', '.')]
+
+
+nevertheless , the done of the cancellation of the flight could to be corroborated for the same personal .
+pos:
+	[('nevertheless', 'RB'), (',', ','), ('the', 'DT'), ('done', 'NN'), ('of', 'IN'), ('the', 'DT'), ('cancellation', 'NN'), ('of the', 'DT'), ('flight', 'NN'), ('could', 'MD'), ('to be', 'VB'), ('corroborated', 'VBN'), ('for', 'IN'), ('the', 'DT'), ('same', 'JJ'), ('personal', 'JJ'), ('.', '.')]
+

@@ -1,0 +1,32 @@
+DT NNP , NNP DT NN IN NN , DT NN IN DT NN VBZ IN NNS IN DT NN JJ IN DT NN IN DT JJ IN JJ IN IN DT NNP CC WP$ NN VBZ DT NN IN NNS , NN NN , VBD VBN IN JJ NN .
+JJ IN DT NN NN VBD IN RB PRP$ JJ VB IN IN DT NN IN DT NN IN JJ , CC IN DT CD NN NN CC RB IN DT NN .
+DT NN IN NN IN DT JJ NN IN NN , NNP NNP NNP , VBD DT NN IN JJ IN DT NN IN DT NN .
+IN VBN , DT NN NN NN VBD IN PRP$ JJ JJ VBN IN PRP$ JJ VB IN IN CD NN WDT VBP DT NN IN PRP$ NNS VBP CC IN VBZ VBN IN DT NNS WDT VBP DT NN .
+NN RB PRP$ JJ VBN DT NN , VBZ JJ DT NN IN NN , DT WDT VBZ IN NN : , VBD .
+IN VBN , NNP NNP VBD IN MD RB VB IN DT NN IN VBN , NN IN RB VBD DT NN IN JJ NN NNS IN DT NN CC VBD NN IN DT EX VBZ NN IN JJR NNS CC RB IN JJR .
+NNS IN DT NN NN PRP$ JJ VBN IN DT NNS IN DT NN IN TO VB JJR NNS VBP IN DT NN .
+IN JJ , DT JJ IN NN IN VBN IN RB VBD IN DT NNS IN TO VB NN IN IN DT NNS JJ IN DT NN .
+PRP$ JJ VBN CD NN IN NN JJ IN TO VB DT NN , CC RB PRP$ JJ VBN NN DT NN IN NN , IN DT WDT VBZ IN RB DT NN RB DT JJ NN IN VBN DT NNS WDT VBN NN IN JJ NN .
+RB , DT NN IN DT NN IN DT NN MD TO VB VBN IN DT JJ JJ .CC
+
+Our Tags:
+CD - Cardinal number: one, two
+DT - Determiner the, some
+EX - Existential there
+IN - Preposition
+JJ - Adjective
+JJR - Comparative Adjective
+MD - Modal: can, should
+NN - Noun
+NNP - Proper noun
+NNS - Noun plural
+PRP - Possessive Pronoun
+RB - Adverb
+TO - to
+VB - Verb, base form
+VBD - Verb, past tense
+VBN - Verb, past particple
+VBP - verb, non-3rd person singular present
+VBZ - Verb, 3rd person singular present
+WDT - Wh-determiner: which, that
+WP - Wh-pronoun: what, who
