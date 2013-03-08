@@ -48,26 +48,32 @@ class Translator:
           continue
         to_append = None
 
-        # rule 1 of 10 - remove multiple consecutive adverbs
+        # rule 1 of 10 - remove multiple consecutive adverbs (No obstante -> not nevertheless)
         if pos_context[i][1] != "RB" or pos_context[i+1][1] != "RB":
           to_append = pos_context[i]
+          
         # rule 6 - deal with passive voice
         if i < len(pos_context) - 2 and pos_context[i][0].lower() == "his" and pos_context[i+1][0].lower() == "own" and "VB" in pos_context[i+2][1]:
           to_append = ("he/she", "NN")
           skipThisRound = True
+          
+        # rule 8 - removal of a determiner followed by a wh-determiner such as the that
         if pos_context[i][1] == "DT" and pos_context[i+1][1] == "WDT":
           continue
+          
         # rule 3 - remove 'to' after modal word
         if pos_context[i][1] == "MD" and pos_context[i+1][1] == "TO":
           skipThisRound = True
+          
         # rule 4 - remove preposition before 'to'
         if pos_context[i][1] == "IN" and pos_context[i+1][1] == "TO":
           continue
+        
           
         if pos_context[i][1] == "IN" and pos_context[i][0].lower() != "because" and pos_context[i+1][1] == "IN":
           continue
         
-        # rule 8 - Sin Embargo phrase catching
+        # rule 9 - Sin Embargo phrase catching
         if pos_context[i][0] == "without" and pos_context[i+1][0] == "confiscate":
           to_append = ("nevertheless", 'RB')
           skipThisRound = True

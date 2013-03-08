@@ -27,10 +27,16 @@ No obstante, el hecho de la cancelación del vuelo pudo ser corroborado por el m
 
 i) In spanish, it is often the case the adjective follow verbs.  In English, adjectives typically preface nouns.  Thus when we encounter a noun followed by a adjective, we swap the two words.
 
-ii) In spanish a modal verb followed by an infinitive verb is common.  However, in English sentences with that structure don't make sense.  Consider for example, "He may to run" or "I must to change this sentence". In these scenarios}
+ii) In spanish a modal verb followed by an infinitive verb is common.  However, in English sentences with this structure don't make sense.  Consider for example, "He may to run" or "I must to change this sentence". In these scenarios, we remove the 'to' so that the modal verb is not followed by an infinitive.
 
-iii) In spanish is prepositions often appear before infinitives.  Sentences like "Esto es para solicitar" when translated directly result in a english
+iii) 
 
-iv) In Spanish reflexive verbs occur in a different format than reflexive verbs in english.  The reflexive pronoun often occurs before the verb such "Me llamo Peter." In English, this sentence would be translated as "I call myself Peter." In our source text, the 
+iv) In spanish is prepositions often appear before infinitives.  Sentences like "Esto es para solicitar" when translated directly result in a english sounds awkward.  Consider the translation: "This is for to solicit".  Removing the preposition before the infinitive results in a more fluent sentence: "This is to solicit".
+
+iv) 
+
+
+JUNK BELOW:
+In Spanish reflexive verbs occur in a different format than reflexive verbs in english.  The reflexive pronoun often occurs before the verb such "Me llamo Peter." In English, this sentence would be translated as "I call myself Peter." In our source text, the 
 
 v) Negation
