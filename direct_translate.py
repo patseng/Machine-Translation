@@ -22,7 +22,29 @@ class Translator:
   def pos_translate(self):
     english = self.dick_translate()
     for sentence in english:
-      print nltk.pos_tag(sentence)
+      pos_context = nltk.pos_tag(sentence)
+      
+      edited_pos_context = []
+      for i in xrange(len(pos_context) - 1):
+        
+        to_append = (None, None)
+        # rule 1 of 10 - remove multiple adverbs in a row
+        if pos_context[i][1] != "RB" or pos_context[i+1][1] != "RB":
+          edited_pos_context.append(pos_context[i])
+        # rule 2
+        if pos_context[i][1] == "VB" and re.match("to .*", pos_context[i][0])
+          
+          edited_pos_context.append()
+
+      edited_pos_context.append(pos_context[-1])
+
+      
+      print
+      print " ".join(sentence)
+      print "pos:"
+      print "\t%s" % edited_pos_context 
+      print
+
     
   
   def dick_translate(self):
