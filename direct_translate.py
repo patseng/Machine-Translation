@@ -32,6 +32,14 @@ class Translator:
     for sentence in english:
       pos_context = nltk.pos_tag(sentence)
       
+      for i in range(len(pos_context)):
+        # rule 8 if indirect object precedes a verb
+        if pos_context[i][0] == "him" and "VB" in pos_context[i+1][1]:
+          tmp = pos_context[i]
+          pos_context[i] = pos_context[i+1]
+          pos_context[i+1] = tmp
+      
+      
       edited_pos_context = []
       skipThisRound = False
       for i in range(0, len(pos_context) - 1, 1):
@@ -39,19 +47,36 @@ class Translator:
           skipThisRound = False
           continue
         to_append = None
-        # rule 6 - deal with reflexive verbs by detecting reflexive particle
+
         # rule 1 of 10 - remove multiple consecutive adverbs
         if pos_context[i][1] != "RB" or pos_context[i+1][1] != "RB":
           to_append = pos_context[i]
+        # rule 6 - deal with passive voice
         if i < len(pos_context) - 2 and pos_context[i][0].lower() == "his" and pos_context[i+1][0].lower() == "own" and "VB" in pos_context[i+2][1]:
           to_append = ("he/she", "NN")
           skipThisRound = True
+        if pos_context[i][1] == "DT" and pos_context[i+1][1] == "WDT":
+          continue
         # rule 3 - remove 'to' after modal word
         if pos_context[i][1] == "MD" and pos_context[i+1][1] == "TO":
           skipThisRound = True
         # rule 4 - remove preposition before 'to'
         if pos_context[i][1] == "IN" and pos_context[i+1][1] == "TO":
           continue
+          
+        if pos_context[i][1] == "IN" and pos_context[i][0].lower() != "because" and pos_context[i+1][1] == "IN":
+          continue
+        
+        # rule 8 - Sin Embargo phrase catching
+        if pos_context[i][0] == "without" and pos_context[i+1][0] == "confiscate":
+          to_append = ("nevertheless", 'RB')
+          skipThisRound = True
+        
+        # rule 9 - In fact phrase catching
+        if pos_context[i][0] == "of" and pos_context[i+1][0] == "done":
+          edited_pos_context.append(("in", "IN"))
+          to_append = ("fact", "NN")
+          skipThisRound = True
         # rule 2
         if to_append:
           edited_pos_context.append(to_append)
@@ -59,15 +84,19 @@ class Translator:
       
       for i in xrange(len(edited_pos_context) - 1):
         # rule 5 - reverse order of nouns and modifying adjectives
-        if edited_pos_context[i][1] == "NN" and edited_pos_context[i+1][1] == "JJ":
+        if "NN" in edited_pos_context[i][1] and edited_pos_context[i+1][1] == "JJ":
           tmp = edited_pos_context[i]
           edited_pos_context[i] = edited_pos_context[i+1]
           edited_pos_context[i+1] = tmp
+        if i < len(edited_pos_context) - 2 and "NN" in edited_pos_context[i][1] and "VB" in edited_pos_context[i+2][1] and edited_pos_context[i+1][0] == "he/she":
+          edited_pos_context[i+1] = ("","")
+        
         # rule 7 - negation
         if edited_pos_context[i][0].lower() == "not" and edited_pos_context[i+1][1] == "NN":
           tmp = edited_pos_context[i]
           edited_pos_context[i] = edited_pos_context[i+1]
           edited_pos_context[i+1] = tmp
+        
     
       # print " ".join([y for x,y in edited_pos_context])
       
@@ -78,11 +107,10 @@ class Translator:
       j += 1
       print
       
-      self.printSentenceWithTags(edited_pos_context)
-      print
+      # self.printSentenceWithTags(edited_pos_context)
       print " ".join([x for x,y in edited_pos_context])
-      print "pos:"
-      print "\t%s" % edited_pos_context 
+      print
+      self.printSentenceWithTags(edited_pos_context)
       print
 
     

@@ -21,7 +21,7 @@ cargo,position
 casa,house
 cede,give up
 ciudad,city
-comentó,told
+comentó,commented
 compañía,company
 compañía,company
 comunicaron,communicated
@@ -76,7 +76,7 @@ internos,internal
 la,the
 las,the
 las,the
-le,him/her
+le,him
 lo,that which is
 logró,managed
 los,the
@@ -121,10 +121,10 @@ respecto,respect
 respuesta,answer
 ruta,route
 ruta,route
-sale,salts
+sale,leaves
 se,his own
 ser,to be
-sería,would
+sería,it would be
 sin,without
 Sinaloa,Sinaloa
 sino,but
@@ -153,4 +153,5 @@ viajeros,travellers
 vivieron,lived
 Volaris,Volaris
 vuelo,flight
+vuelos,flights
 y,and
