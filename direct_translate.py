@@ -26,7 +26,6 @@ class Translator:
       to_print.append("(%s)" % y)
     print " ".join(to_print)
   
-  
   def pos_translate(self):
     english = self.dick_translate()
     j = 0
@@ -34,19 +33,41 @@ class Translator:
       pos_context = nltk.pos_tag(sentence)
       
       edited_pos_context = []
-      for i in xrange(len(pos_context) - 1):
-        
+      skipThisRound = False
+      for i in range(0, len(pos_context) - 1, 1):
+        if skipThisRound:
+          skipThisRound = False
+          continue
         to_append = None
-        # rule 1 of 10 - remove multiple adverbs in a row
+        # rule 6 - deal with reflexive verbs by detecting reflexive particle
+        # rule 1 of 10 - remove multiple consecutive adverbs
         if pos_context[i][1] != "RB" or pos_context[i+1][1] != "RB":
           to_append = pos_context[i]
+        if i < len(pos_context) - 2 and pos_context[i][0].lower() == "his" and pos_context[i+1][0].lower() == "own" and "VB" in pos_context[i+2][1]:
+          to_append = ("he/she", "NN")
+          skipThisRound = True
+        # rule 3 - remove 'to' after modal word
+        if pos_context[i][1] == "MD" and pos_context[i+1][1] == "TO":
+          skipThisRound = True
+        # rule 4 - remove preposition before 'to'
+        if pos_context[i][1] == "IN" and pos_context[i+1][1] == "TO":
+          continue
         # rule 2
-        # if pos_context[i][1] == "VB" and re.match("to .{1,}", pos_context[i][0]):
-          # to_append = (pos_context[i][0][3:], pos_context[i][1])
         if to_append:
           edited_pos_context.append(to_append)
-
       edited_pos_context.append(pos_context[-1])
+      
+      for i in xrange(len(edited_pos_context) - 1):
+        # rule 5 - reverse order of nouns and modifying adjectives
+        if edited_pos_context[i][1] == "NN" and edited_pos_context[i+1][1] == "JJ":
+          tmp = edited_pos_context[i]
+          edited_pos_context[i] = edited_pos_context[i+1]
+          edited_pos_context[i+1] = tmp
+        # rule 7 - negation
+        if edited_pos_context[i][0].lower() == "not" and edited_pos_context[i+1][1] == "NN":
+          tmp = edited_pos_context[i]
+          edited_pos_context[i] = edited_pos_context[i+1]
+          edited_pos_context[i+1] = tmp
     
       # print " ".join([y for x,y in edited_pos_context])
       
