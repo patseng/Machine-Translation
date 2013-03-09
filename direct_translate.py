@@ -104,7 +104,19 @@ class Translator:
           tmp = edited_pos_context[i]
           edited_pos_context[i] = edited_pos_context[i+1]
           edited_pos_context[i+1] = tmp
+          
+        # rule 13 - it not VB NN
+        if i < len(edited_pos_context) - 2 and edited_pos_context[i][0].lower() == 'it' and edited_pos_context[i+1][0].lower() == 'not' and "VB" in edited_pos_context[i+2][1]:
+          edited_pos_context[i+1] = ("wasn't", "RB")
         
+        # rule 14 - it wasn't VB DT NN
+        if i < len(edited_pos_context) - 4 and edited_pos_context[i][0].lower() == 'it' and edited_pos_context[i+1][0].lower() == "wasn't" and "VB" in edited_pos_context[i+2][1] and "DT" in edited_pos_context[i+3][1] and "NN" in edited_pos_context[i+4][1]:
+          edited_pos_context[i] = edited_pos_context[i+3]
+          edited_pos_context[i+3] = edited_pos_context[i+2]
+          edited_pos_context[i+2] = edited_pos_context[i+1]
+          edited_pos_context[i+1] = edited_pos_context[i+4]
+          edited_pos_context[i+4] = ('', '')
+
     
       # print " ".join([y for x,y in edited_pos_context])
       
