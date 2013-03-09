@@ -33,7 +33,7 @@ class Translator:
       pos_context = nltk.pos_tag(sentence)
       
       for i in range(len(pos_context)):
-        # rule 8 if indirect object precedes a verb
+        # rule 10 if indirect object precedes a verb
         if pos_context[i][0] == "him" and "VB" in pos_context[i+1][1]:
           tmp = pos_context[i]
           pos_context[i] = pos_context[i+1]
@@ -52,7 +52,7 @@ class Translator:
         if pos_context[i][0].lower() == "not" and pos_context[i+1][0] == "nevertheless":
           continue
           
-        # rule 6 - deal with passive voice
+        # rule 8 - deal with passive voice
         if i < len(pos_context) - 2 and pos_context[i][0].lower() == "his" and pos_context[i+1][0].lower() == "own" and "VB" in pos_context[i+2][1]:
           to_append = ("it", "NN")
           skipThisRound = True
@@ -73,12 +73,12 @@ class Translator:
         if pos_context[i][1] == "IN" and pos_context[i][0].lower() != "because" and pos_context[i+1][1] == "IN":
           continue
         
-        # rule 9 - Sin Embargo phrase catching
+        # rule 6 - Sin Embargo phrase catching
         if pos_context[i][0] == "without" and pos_context[i+1][0] == "confiscate":
           to_append = ("nevertheless", 'RB')
           skipThisRound = True
         
-        # rule 10 - In fact phrase catching
+        # rule 7 - In fact phrase catching
         if pos_context[i][0] == "of" and pos_context[i+1][0] == "done":
           edited_pos_context.append(("in", "IN"))
           to_append = ("fact", "NN")
@@ -99,7 +99,7 @@ class Translator:
         if i < len(edited_pos_context) - 2 and "NN" in edited_pos_context[i][1] and "VB" in edited_pos_context[i+2][1] and edited_pos_context[i+1][0] == "it":
           edited_pos_context[i+1] = ("","")
         
-        # rule 7 - negation
+        # rule 9 - negation
         if edited_pos_context[i][0].lower() == "not" and "NN" in edited_pos_context[i+1][1]:
           tmp = edited_pos_context[i]
           edited_pos_context[i] = edited_pos_context[i+1]

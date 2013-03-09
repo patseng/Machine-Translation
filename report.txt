@@ -1,7 +1,4 @@
-1) We chose to work with Spanish. Spanish is similar to English in many ways, though there are still many differences. Word order is a key difference, as Spanish flips the English order for many parts of speech (e.g.
-noun-adj, direct/indirect obj-verb, etc). Some Spanish words, particularly prepositions, can have a wide variety of meanings based on the context in which they are used (e.g. por, para, a). Some very important words have
-multiple meanings that are just as common as one another (e.g. "fue" means "was" and also "went"). There are also very many atomic phrases in Spanish, where the meaning of the phrase is not even close to the sum of its parts. 
-In addition, in Spanish, nouns can be implied (that is, absorbed by the verb).  In spanish, reflexive verbs and the passive or impersonal voice are syntactically similar but semantically quite different.  Verbs are reflexive when the subject and the object of the sentence.  In Spanish, the reflexive pronoun "se" appears after a third person and before the reflexive verb. The reflexive pronoun can also slightly alter the meaning of the verb. However, the same "se" is used frequently when Spanish is written with a passive voice.  Consequently, the use of direct translation for the word 'se' poses numerous difficulties.  
+1) We chose to work with Spanish. Spanish is similar to English in many ways, though there are still many differences. Word order is a key difference, as Spanish flips the English order for many parts of speech (e.g. noun-adj, direct/indirect obj-verb, etc). Some Spanish words, particularly prepositions, can have a wide variety of meanings based on the context in which they are used (e.g. por, para, a). Some very important words have multiple meanings that are just as common as one another (e.g. "fue" means "was" and also "went"). There are also very many atomic phrases in Spanish, where the meaning of the phrase is not even close to the sum of its parts.  In addition, in Spanish, nouns can be implied (that is, absorbed by the verb).  In Spanish, reflexive verbs and the passive or impersonal voice are syntactically similar but semantically quite different.  In Spanish, the reflexive pronoun "se" appears after a third person and before the conjugated reflexive verb. The reflexive pronoun can also slightly alter the meaning of the verb. However, the same "se" is used frequently when Spanish is written with a passive voice.  Consequently, the use of direct translation for the word 'se' poses numerous difficulties.  
 
 2) The original test document:
 
@@ -22,28 +19,99 @@ Se proporcionó una dirección de correo electrónico para solicitar la informac
 
 No obstante, el hecho de la cancelación del vuelo pudo ser corroborado por el mismo personal.
 
-3) TODO - our output here
+3) 
+The Mochis, Sinaloa.- the day of tomorrow, the flight of the company volaris that leaves of the international airport of the valley of the strong with give in the Mochis and whose destination is the city of Tijuana, Baja California, went canceled without previous notice.
+
+Personal of the port air confirmed that it wasn't be of the cancellation of the route in general, but of that one flight specific and only for this occasion.
+
+The director of economy of the local government of Ahome, Mauricio Duarte Martínez, confirmed the information of the management of the company.
+
+In fact, the civil servant municipal commented that it informed him that it be of one operation that make the airline in their units air and that is related with the enrollments that carry the aircraft.
+
+"the route wasn't canceled , is single the flight of tomorrow, that leaves at Tijuana", said.
+
+In fact, Duarte Martínez indicated that it would be very difficult that the route out cancelled, position that recently had some approach with various business owners of the bunch and had information of that there is demand of more flights and not of less.
+
+Reporters of this house editorial  communicated at the telephones of the airline to solicit more details respect at this event.
+
+Nevertheless, the personal at position indicated that not told with the faculties to facilitate information because at some internal regulations of the company.
+
+It provided one direction of electronic mail to solicit the information, but it wasn't managed to obtain no answer in time, for it that probably this went also the same situation that lived some travellers that stayed broke without his/her flight.
+
+Nevertheless, the done of the cancellation of the flight could be corroborated for the same personal.
 
 4) Rules:
 
 Rule 1:
-  In spanish, it is often the case the adjective follow verbs.  In English, adjectives typically preface nouns.  Thus when we encounter a noun followed by a adjective, we swap the two words.
+  In Spanish, it is often the case the adjective follow verbs.  In English, adjectives typically preface nouns.  Thus when we encounter a noun followed by an adjective, we swap the two words.  However, this assumes that the part of speech tagger is able to detect the noun adjective combination.  Unfortunately, some English adjectives are also nouns and when they follow a noun the tagger incorrectly labels them as nouns as well.  Thus, certain errors remain in the translation. To improve this, we could tag the words in Spanish first, and do the swapping there before the direct translation.
 
 Rule 2:
-  In spanish, reflexive verbs and the passive or impersonal voice are syntactically similar but semantically quite different.  Verbs are reflexive when the subject and the object of the sentence.  In Spanish, the reflexive pronoun "se" appears after a third person and before the reflexive verb. The reflexive pronoun can also slightly alter the meaning of the verb. However, the same "se" is used frequently when Spanish is written with a passive voice.  Consequently, the use of direct translation for the word 'se' poses numerous difficulties.  
+  In Spanish, reflexive verbs and the passive or impersonal voice are syntactically identical but semantically quite different.  Verbs are reflexive when the subject and the object of the sentence are the same.  In Spanish, the reflexive pronoun "se" appears after a third person (he, she, it) and before the reflexive verb. The reflexive pronoun can also slightly alter the meaning of the verb. However, the same "se" is used frequently when Spanish is written with a passive voice.  Consequently, the use of direct translation for the word 'se' poses numerous difficulties.  
+
+Rule 2:
+  In Spanish a modal verb followed by an infinitive verb is common.  However, in English sentences with this structure don't make sense.  Consider for example, "He may to run" or "I must to change this sentence". In these scenarios, we remove the 'to' so that the modal verb is not followed by an infinitive.
 
 Rule 3:
-  In spanish a modal verb followed by an infinitive verb is common.  However, in English sentences with this structure don't make sense.  Consider for example, "He may to run" or "I must to change this sentence". In these scenarios, we remove the 'to' so that the modal verb is not followed by an infinitive.
+  In Spanish is prepositions often appear before infinitives.  Sentences like "Esto es para solicitar..." when translated directly result in a English sounds awkward.  Consider the translation: "This is for to solicit...".  Removing the preposition before the infinitive results in a more fluent sentence: "This is to solicit...".
 
 Rule 4:
-  In spanish is prepositions often appear before infinitives.  Sentences like "Esto es para solicitar" when translated directly result in a english sounds awkward.  Consider the translation: "This is for to solicit".  Removing the preposition before the infinitive results in a more fluent sentence: "This is to solicit".
+  This rule eliminates multiple consecutive prepositions. These sometimes arise in the direct translation (e.g. “at through of”), and are quite rare in English. We solve this problem by getting rid of the initial prepositions, as usually the last one is the correct one for the following phrase.
+
+Rule 5, 6, 7:
+  These rules catch phrases that are completely unrelated to the sum of their parts. For some phrases, the direct translation in English never occurs (e.g. ‘not nevertheless’, ‘without confiscate’, etc) so we decided to recognize these direct translations of phrases and convert them to the true translations of the phrases in order to achieve greater fluency. The appearance of such phrases in English seems to greatly add to the fluency of the text as it seems that only high-level users of a language would use such phrases, so it makes our translator seem smarter.
 
 Rule 8:
-  In spanish the phrase "lo que" occurs quite frequently.  This is part of a set of phrases called relative pronoun which are the combination of one of "el", "la", "los", "las", "lo" followed by "que" or "cual"
-        # rule 8 - removal of a determiner followed by a wh-determiner such as "the that"
+  Dealing with ‘se’. As noted above, this was quite difficult due to the many scenarios in which ‘se’ can be used. In our article, we noticed that it mostly corresponded to the passive voice (as formal writing rules forbid the usage of ‘I’). Thus we detected when ‘se’ was followed by a verb (by detecting when our direct translation of ‘se’, ‘his own’, was followed by a verb), and replaced ‘se’ in these cases with ‘it’. We chose ‘it’ as ‘se’ usually represent some unspecified passive body performing or receiving an action, and since there is no straightforward direct translation for this in English, we decided that ‘it’ performed a similar function as it represents some unspecified body performing or receiving an action.
+
+Rule 9:  
+  In Spanish, the word ‘no’ has more meanings than the same word in English.  In most cases, ‘no’ is actually more similar to ‘not’ and is used to negate certain verbs.  With reflexive verbs and the passive voice, it is common that the negation occurs before the reflexive pronoun.  For example, “No me duché.”  means “I did not shower.” When translated word by word, the Spanish is converted to “Not me showered.”  While this is clearly botched, we tried to fix this.  When we see a “not” followed by a noun, we switch the two.  Thus our rule would change “Not me showered” to “Me not showered.”  This is a step in the right direction because now the negation occurs before the verb.
+
+Rule 10:
+  In Spanish, indirect objects can occur before the verb.  For example, “Yo le mandaba correos” is equivalent to “I sent him emails” but is directly translated to “I him sent emails.”  In order to correct for the distortion of direct translation (‘le’ corresponds to ‘him’ and ‘mandaba’ corresponds to ‘sent’), we swap the indirect object and the verb.
+
+Rule 11:
+  This rule removes a passive ‘se’ in between a noun and a verb. We see that this ‘se’ translates to ‘it’ (as it precedes a verb, so it is caught by Rule 8). In this case, we have a noun directly before, so usually this is not the passive ‘se’, but rather just a reflexive verb. As such, we remove the extra ‘it’ and allow the preceding noun to perform the action instead.
+
+Rule 12:
+  In Spanish the phrase "lo que" occurs quite frequently.  This is part of a set of phrases called relative pronoun which are the combination of one of "el", "la", "los", "las", "lo" followed by "que" or "cual."  For example the sentence “Mi silla, la que es negra,” means “My chair, the one that is black.”  However the direct dictionary translation yields “My chair, the that is black.”  We decided to keep just the word ‘that’ to maintain a similar and fluent translation i.e “My chair that is black.”
+
+Rule 13:
+  As stated in rule 7, negations often occur before the reflexive pronoun.  When combined passive voice problems, which were mentioned in rule 4, we found that our translations produced “it not” in several locations.  For example, we had “it not canceled the route” and “it not managed to obtain no answer in time.”  We decided to change “it not” to “it wasn’t” when a past tense verb followed.
+
+Rule 14:
+  After applying rule 13, where we converted “it not” to “it wasn’t” we found there was one sequence of words that had a clear and generalizable fix.  In the instance that you find “it wasn’t” followed by a verb, a determiner, and then a noun you  could reorder the sentence to the determiner, the noun, “wasn’t”, followed by the verb.  More concretely, we transformed the Yoda-like sentence “it wasn’t cancelled the route” to “the route wasn’t cancelled.”
+
+5) Error Analysis
+
+One glaring error that is still left is the incorrect translation of unigrams.  Due to the fact that we translate unigrams based off of the frequency of its translation, we do not consider using a different meaning of the word.  We could employ a host of different options to solve this issue.  One of which could be as simple as running a part of speech tagger in the foreign language first and using the part of speech information to eliminate erroneous translation options.  For example, if we tagged “Personal del puerto aéreo” in Spanish first, then we would know that “Personal” is a noun and not an adjective so we can disregard the most common translation to the adjective “personal” and instead elect a translation to an English noun.  Additionally, we could create a probabilistic model where we choose from many translations as opposed to being limited to just one.  For example, our translation of the first sentence converts “el vuelo... que sale del Aeropuerto Internacional” to “the flight... that leaves of the international airport” only considers “of the” as a translation for “del”.  If we also considered possibilities like “from the” this would improve fluency and accuracy but would require computing translation model and language model.  Similarly this would help with prepositions such as ‘a’, ‘por’, ‘para’, and much, much more.
+
+Moreover, we found that tagging in English was riddled with problems as mentioned in our discussion of rule 1.  For example, certain Spanish adjectives were translated to English words that are nouns and adjectives.  Our tagger quite often incorrectly labeled them as nouns because they follow another noun.  In turn, this rendered our rules less effective.  Once again, tagging in Spanish first could resolve some of these errors.
+
+‘Se’ was also a big issue for us, just due to the many different situations in which it can be used and the lack of a definitively good translation to English. We see that Google also has a similar issue. English requires that the subject belonging to a verb always be clear, whereas in Spanish ‘se’ can be used such that this is not the case. A solution to this would be to decompose the sentence into its underlying semantics in order to determine what nouns belong with what verbs and so forth. From there, we can better choose the subject that ‘se’ should represent.
+
+Another error that we attempted to reduce was the failure to translate phrases.  We were able to catch some phrases, because the direct translation would never occur in fluent English.  However, in many situations this is not the case.  As such, it would be best to detect the phrases in Spanish and translate those phrases directly.  
 
 
-JUNK BELOW:
-In Spanish reflexive verbs occur in a different format than reflexive verbs in english.  The reflexive pronoun often occurs before the verb such "Me llamo Peter." In English, this sentence would be translated as "I call myself Peter." In our source text, the 
 
-v) Negation
+6) Google’s Translation
+Los Mochis, Sinaloa. - The Day After Tomorrow, the company Volaris flight leaving International Airport Fort Valley based in Los Mochis and whose destination is the city of Tijuana, Baja California, was canceled without notice.
+Aerial port personnel confirmed that it is not canceling the route in general, but that specific flight and only for this occasion.
+The Director of Finance of the City of Ahome, Mauricio Duarte Martinez, confirmed the information through the management of the company.
+In fact, the city official said he was told that this is an operation carried out by the airline in its air units and which is related to the aircraft carrying plates.
+"No route is canceled, it's just the morning flight, which leaves at Tijuana," he said.
+In fact, Martinez Duarte said it would be very difficult for the route was canceled, having recently had a rapprochement with several businessmen in the area and had information that there is demand for more flights, not less.
+Reporters of this publishing house phones were reported to the airline for further details regarding this event.
+However, the staff in charge said they did not have the authority to provide information due to some internal company regulations.
+It provided an e-mail to request the information, but did not get any response on time, so this was probably also experienced the same situation as some travelers who were stranded without their flight.
+However, the fact of the cancellation of the flight could be corroborated by the same staff.
+
+7) Our comparison to Google’s Translation
+
+Google catches phrases much better than us (probably due to the fact that it looks at more than unigram translation). We spit out the most common definition of a word for every occurrence of that word, resulting in some very odd sentences when we get the wrong part of speech for some word. Google solves this problem, usually getting at least the correct part of speech in the right place, so the sentence sounds more natural and fluid. Our translation is similar to Google’s in cases of straightforward sentences without many phrases. Google also seems to have implemented similar handling of ‘se’, as we see that it outputs ‘it’ in many places where ‘se’ indicates an unspecified subject in Spanish. This is not always correct, but it seems to be a good solution. Google is also similarly unable to handle the many definitions of certain prepositions (e.g. the Spanish ‘a’ is mistranslated). Google’s translation does seems to catch every instance of noun-adjective flipping, whereas our implementation catches only some of these instances (again due to the fact that our tagger classified quite a few adjectives as nouns, probably because of their position and the fact that the word itself could be a noun). Google also leaves named entities alone, which is something we don’t always do in our translation.
+
+All in all, Google has much better fluency, although it still appears to stumble on particularly awkward combinations of words that can have situation-specific meanings or complex structures such that all semantics are difficult to parse.
+
+8) Responsibilities of the Team
+
+We worked side-by-side for the entire project; doing pair-programming for the programming parts and discussing the questions as we wrote them.
+
