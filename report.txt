@@ -28,15 +28,21 @@ No obstante, el hecho de la cancelación del vuelo pudo ser corroborado por el m
 
 4) Rules:
 
-i) In spanish, it is often the case the adjective follow verbs.  In English, adjectives typically preface nouns.  Thus when we encounter a noun followed by a adjective, we swap the two words.
+Rule 1:
+  In spanish, it is often the case the adjective follow verbs.  In English, adjectives typically preface nouns.  Thus when we encounter a noun followed by a adjective, we swap the two words.
 
-ii) In spanish a modal verb followed by an infinitive verb is common.  However, in English sentences with this structure don't make sense.  Consider for example, "He may to run" or "I must to change this sentence". In these scenarios, we remove the 'to' so that the modal verb is not followed by an infinitive.
+Rule 2:
+  In spanish, reflexive verbs and the passive or impersonal voice are syntactically similar but semantically quite different.  Verbs are reflexive when the subject and the object of the sentence.  In Spanish, the reflexive pronoun "se" appears after a third person and before the reflexive verb. The reflexive pronoun can also slightly alter the meaning of the verb. However, the same "se" is used frequently when Spanish is written with a passive voice.  Consequently, the use of direct translation for the word 'se' poses numerous difficulties.  
 
-iii) 
+Rule 3:
+  In spanish a modal verb followed by an infinitive verb is common.  However, in English sentences with this structure don't make sense.  Consider for example, "He may to run" or "I must to change this sentence". In these scenarios, we remove the 'to' so that the modal verb is not followed by an infinitive.
 
-iv) In spanish is prepositions often appear before infinitives.  Sentences like "Esto es para solicitar" when translated directly result in a english sounds awkward.  Consider the translation: "This is for to solicit".  Removing the preposition before the infinitive results in a more fluent sentence: "This is to solicit".
+Rule 4:
+  In spanish is prepositions often appear before infinitives.  Sentences like "Esto es para solicitar" when translated directly result in a english sounds awkward.  Consider the translation: "This is for to solicit".  Removing the preposition before the infinitive results in a more fluent sentence: "This is to solicit".
 
-iv) 
+Rule 8:
+  In spanish the phrase "lo que" occurs quite frequently.  This is part of a set of phrases called relative pronoun which are the combination of one of "el", "la", "los", "las", "lo" followed by "que" or "cual"
+        # rule 8 - removal of a determiner followed by a wh-determiner such as "the that"
 
 
 JUNK BELOW:
