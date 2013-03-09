@@ -46,11 +46,11 @@ class Translator:
         if skipThisRound:
           skipThisRound = False
           continue
-        to_append = None
-
-        # rule 5 - remove multiple consecutive adverbs (No obstante -> not nevertheless)
-        if pos_context[i][1] != "RB" or pos_context[i+1][1] != "RB":
-          to_append = pos_context[i]
+        to_append = pos_context[i]
+        
+        # rule 5 - No obstante -> not nevertheless
+        if pos_context[i][0].lower() == "no" and pos_context[i+1][0] == "nevertheless":
+          continue
           
         # rule 6 - deal with passive voice
         if i < len(pos_context) - 2 and pos_context[i][0].lower() == "his" and pos_context[i+1][0].lower() == "own" and "VB" in pos_context[i+2][1]:
