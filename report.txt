@@ -1,6 +1,9 @@
 1) The F language you're working with and any general observations about it, including particular challenges in translating your choice of F language to English (relative to other possible choices for F).
 
-TODO
+We chose to work with Spanish. Spanish is similar to English in many ways, though there are still many differences. Word order is a key difference, as Spanish flips the English order for many parts of speech (e.g.
+noun-adj, direct/indirect obj-verb, etc). Some Spanish words, particularly prepositions, can have a wide variety of meanings based on the context in which they are used (e.g. por, para, a). Some very important words have
+multiple meanings that are just as common as one another (e.g. "fue" means "was" and also "went"). There are also very many atomic phrases in Spanish, where the meaning of the phrase is not even close to the sum of its parts. 
+In addition, in Spanish, nouns can be implied (that is, absorbed by the verb).
 
 2) The original test document:
 
