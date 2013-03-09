@@ -49,7 +49,7 @@ class Translator:
         to_append = pos_context[i]
         
         # rule 5 - No obstante -> not nevertheless
-        if pos_context[i][0].lower() == "no" and pos_context[i+1][0] == "nevertheless":
+        if pos_context[i][0].lower() == "not" and pos_context[i+1][0] == "nevertheless":
           continue
           
         # rule 6 - deal with passive voice
@@ -100,7 +100,7 @@ class Translator:
           edited_pos_context[i+1] = ("","")
         
         # rule 7 - negation
-        if edited_pos_context[i][0].lower() == "not" and edited_pos_context[i+1][1] == "NN":
+        if edited_pos_context[i][0].lower() == "not" and "NN" in edited_pos_context[i+1][1]:
           tmp = edited_pos_context[i]
           edited_pos_context[i] = edited_pos_context[i+1]
           edited_pos_context[i+1] = tmp
