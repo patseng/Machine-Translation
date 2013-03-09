@@ -48,28 +48,28 @@ class Translator:
           continue
         to_append = None
 
-        # rule 1 of 10 - remove multiple consecutive adverbs (No obstante -> not nevertheless)
+        # rule 5 - remove multiple consecutive adverbs (No obstante -> not nevertheless)
         if pos_context[i][1] != "RB" or pos_context[i+1][1] != "RB":
           to_append = pos_context[i]
           
         # rule 6 - deal with passive voice
         if i < len(pos_context) - 2 and pos_context[i][0].lower() == "his" and pos_context[i+1][0].lower() == "own" and "VB" in pos_context[i+2][1]:
-          to_append = ("he/she", "NN")
+          to_append = ("it", "NN")
           skipThisRound = True
           
-        # rule 8 - removal of a determiner followed by a wh-determiner such as the that
+        # rule 12 - removal of a determiner followed by a wh-determiner such as "the that"
         if pos_context[i][1] == "DT" and pos_context[i+1][1] == "WDT":
           continue
           
-        # rule 3 - remove 'to' after modal word
+        # rule 2 - remove 'to' after modal word
         if pos_context[i][1] == "MD" and pos_context[i+1][1] == "TO":
           skipThisRound = True
           
-        # rule 4 - remove preposition before 'to'
+        # rule 3 - remove preposition before 'to'
         if pos_context[i][1] == "IN" and pos_context[i+1][1] == "TO":
           continue
         
-          
+        # rule 4 - bad rule?
         if pos_context[i][1] == "IN" and pos_context[i][0].lower() != "because" and pos_context[i+1][1] == "IN":
           continue
         
@@ -78,23 +78,25 @@ class Translator:
           to_append = ("nevertheless", 'RB')
           skipThisRound = True
         
-        # rule 9 - In fact phrase catching
+        # rule 10 - In fact phrase catching
         if pos_context[i][0] == "of" and pos_context[i+1][0] == "done":
           edited_pos_context.append(("in", "IN"))
           to_append = ("fact", "NN")
           skipThisRound = True
-        # rule 2
+
         if to_append:
           edited_pos_context.append(to_append)
       edited_pos_context.append(pos_context[-1])
       
       for i in xrange(len(edited_pos_context) - 1):
-        # rule 5 - reverse order of nouns and modifying adjectives
+        # rule 1 - reverse order of nouns and modifying adjectives
         if "NN" in edited_pos_context[i][1] and edited_pos_context[i+1][1] == "JJ":
           tmp = edited_pos_context[i]
           edited_pos_context[i] = edited_pos_context[i+1]
           edited_pos_context[i+1] = tmp
-        if i < len(edited_pos_context) - 2 and "NN" in edited_pos_context[i][1] and "VB" in edited_pos_context[i+2][1] and edited_pos_context[i+1][0] == "he/she":
+          
+        # rule 11 - remove 'se' that are between noun and verb
+        if i < len(edited_pos_context) - 2 and "NN" in edited_pos_context[i][1] and "VB" in edited_pos_context[i+2][1] and edited_pos_context[i+1][0] == "it":
           edited_pos_context[i+1] = ("","")
         
         # rule 7 - negation
@@ -106,18 +108,18 @@ class Translator:
     
       # print " ".join([y for x,y in edited_pos_context])
       
-      print
-      print "SPANISH"
-      print 
-      print self.text[j]
-      j += 1
-      print
+      # print
+      # print "SPANISH"
+      # print 
+      # print self.text[j]
+      # j += 1
+      # print
       
       # self.printSentenceWithTags(edited_pos_context)
       print " ".join([x for x,y in edited_pos_context])
-      print
-      self.printSentenceWithTags(edited_pos_context)
-      print
+      # print
+      # self.printSentenceWithTags(edited_pos_context)
+      # print
 
     
   
